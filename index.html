@@ -1,77 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Valentine?</title>
-  <style>
-    body {
-      height: 100vh;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #ffe6ea;
-      font-family: Arial, sans-serif;
-    }
+<meta charset="UTF-8">
+<title>Valentine?</title>
 
-    .card {
-      background: white;
-      padding: 40px;
-      border-radius: 15px;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      position: relative;
-      width: 300px;
-    }
+<style>
+body {
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Comic Sans MS", cursive;
+  overflow: hidden;
+}
 
-    h1 {
-      color: #ff3366;
-    }
+/* Hello Kitty stickers */
+.kitty {
+  position: absolute;
+  width: 80px;
+  opacity: 0.9;
+}
 
-    button {
-      padding: 12px 25px;
-      font-size: 16px;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-    }
+/* Main card */
+.card {
+  background: white;
+  padding: 35px 30px 50px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  width: 320px;
+  position: relative;
+  z-index: 10;
+}
 
-    #yesBtn {
-      background: #ff3366;
-      color: white;
-    }
+h1 {
+  color: #ff3366;
+  font-size: 24px;
+  margin-bottom: 25px;
+}
 
-    #noBtn {
-      background: #ccc;
-      position: absolute;
-    }
-  </style>
+/* Button container for perfect alignment */
+.buttons {
+  position: relative;
+  height: 60px;
+}
+
+button {
+  padding: 12px 26px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+#yesBtn {
+  background: #ff3366;
+  color: white;
+}
+
+#noBtn {
+  background: #ddd;
+  position: absolute;
+  left: 140px;
+}
+</style>
 </head>
 <body>
 
-  <div class="card">
-    <h1>Will you be my Valentine? 💖</h1>
-    <br><br>
-    <button id="yesBtn" onclick="goNext()">Yes</button>
-    <button id="noBtn">No</button>
+<!-- HELLO KITTIES -->
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG16.png" style="top:5%; left:5%; transform:rotate(-25deg);">
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG20.png" style="top:10%; right:8%; transform:rotate(18deg);">
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG22.png" style="bottom:12%; left:6%; transform:rotate(22deg);">
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG25.png" style="bottom:8%; right:5%; transform:rotate(-20deg);">
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG18.png" style="top:40%; left:2%; transform:rotate(12deg);">
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG19.png" style="top:50%; right:2%; transform:rotate(-15deg);">
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG23.png" style="top:75%; left:15%; transform:rotate(10deg);">
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG24.png" style="top:70%; right:15%; transform:rotate(-10deg);">
+
+<!-- MAIN CARD -->
+<div class="card">
+  <h1>Will you be my Valentine? 💖</h1>
+
+  <div class="buttons">
+    <button id="yesBtn" onclick="goNext()">Yes 💕</button>
+    <button id="noBtn">No 💔</button>
   </div>
+</div>
 
 <script>
-  const noBtn = document.getElementById("noBtn");
+const noBtn = document.getElementById("noBtn");
 
-  noBtn.addEventListener("mouseover", () => {
-    const card = document.querySelector(".card");
+noBtn.addEventListener("mouseover", moveButton);
+noBtn.addEventListener("touchstart", moveButton);
 
-    const x = Math.random() * (card.offsetWidth - noBtn.offsetWidth);
-    const y = Math.random() * (card.offsetHeight - noBtn.offsetHeight);
+function moveButton() {
+  const card = document.querySelector(".card");
+  const x = Math.random() * (card.offsetWidth - noBtn.offsetWidth);
+  const y = Math.random() * (card.offsetHeight - noBtn.offsetHeight);
 
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-  });
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+}
 
-  function goNext() {
-    window.location.href = "yes.html";
-  }
+function goNext() {
+  window.location.href = "yes.html";
+}
 </script>
 
 </body>
