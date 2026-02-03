@@ -30,6 +30,19 @@ body {
   to   { transform: translateY(-110vh); opacity: 0; }
 }
 
+/* Confetti */
+.confetti {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  from { transform: translateY(0) rotate(0deg); }
+  to   { transform: translateY(110vh) rotate(360deg); }
+}
+
 /* Hello Kitty stickers */
 .kitty {
   position: absolute;
@@ -56,10 +69,20 @@ body {
   to   { transform: scale(1); opacity: 1; }
 }
 
-/* Main image (single kitty) */
+/* Main image */
+.main-img {
+  position: relative;
+}
+
 .main-img img {
   width: 160px;
-  margin-bottom: 10px;
+}
+
+.main-img span {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 40px;
 }
 
 h1 {
@@ -76,25 +99,23 @@ p {
 </head>
 <body>
 
-<!-- HELLO KITTIES AROUND ALL SIDES -->
+<!-- TOP -->
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG20.png" style="top:3%; left:30%; transform:rotate(-15deg);">
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG22.png" style="top:3%; right:30%; transform:rotate(15deg);">
 
-<!-- top -->
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG20.png" style="top:3%; left:35%; transform:rotate(-15deg);">
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG22.png" style="top:3%; right:35%; transform:rotate(15deg);">
+<!-- BOTTOM -->
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG25.png" style="bottom:3%; left:30%; transform:rotate(15deg);">
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG18.png" style="bottom:3%; right:30%; transform:rotate(-15deg);">
 
-<!-- bottom -->
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG25.png" style="bottom:3%; left:35%; transform:rotate(15deg);">
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG18.png" style="bottom:3%; right:35%; transform:rotate(-15deg);">
-
-<!-- left -->
+<!-- LEFT -->
 <img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG16.png" style="top:25%; left:2%; transform:rotate(-25deg);">
 <img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG23.png" style="top:55%; left:2%; transform:rotate(20deg);">
 
-<!-- right -->
+<!-- RIGHT -->
 <img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG24.png" style="top:25%; right:2%; transform:rotate(25deg);">
 <img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG19.png" style="top:55%; right:2%; transform:rotate(-20deg);">
 
-<!-- corners -->
+<!-- CORNERS -->
 <img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG20.png" style="top:10%; left:8%; transform:rotate(-10deg);">
 <img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG22.png" style="top:10%; right:8%; transform:rotate(10deg);">
 <img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG25.png" style="bottom:10%; left:8%; transform:rotate(10deg);">
@@ -103,9 +124,9 @@ p {
 <!-- MAIN CARD -->
 <div class="card">
 
-  <!-- SINGLE MAIN IMAGE -->
   <div class="main-img">
-    <img src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG50.png" alt="Hello Kitty with heart">
+    <img src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG16.png" alt="Hello Kitty">
+    <span>❤️</span>
   </div>
 
   <h1>Yes ma’am 😌❤️</h1>
@@ -125,31 +146,4 @@ setInterval(() => {
   heart.className = "heart";
   heart.innerHTML = "💗";
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = Math.random() * 20 + 15 + "px";
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 6000);
-}, 500);
-
-/* Confetti burst */
-for (let i = 0; i < 120; i++) {
-  const confetti = document.createElement("div");
-  confetti.style.position = "absolute";
-  confetti.style.width = "8px";
-  confetti.style.height = "8px";
-  confetti.style.backgroundColor = ["#ff3366","#ff99cc","#ffd1dc","#ffffff"][Math.floor(Math.random()*4)];
-  confetti.style.left = Math.random() * 100 + "vw";
-  confetti.style.top = "-10px";
-  confetti.style.opacity = Math.random();
-  confetti.animate([
-    { transform: "translateY(0)" },
-    { transform: "translateY(110vh)" }
-  ], {
-    duration: 4000 + Math.random()*2000,
-    iterations: 1
-  });
-  setTimeout(() => confetti.remove(), 6000);
-}
-</script>
-
-</body>
-</html>
+  heart.st
