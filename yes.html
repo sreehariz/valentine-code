@@ -26,14 +26,14 @@ body {
 }
 
 @keyframes floatUp {
-  0% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(-110vh); opacity: 0; }
+  from { transform: translateY(0); opacity: 1; }
+  to   { transform: translateY(-110vh); opacity: 0; }
 }
 
 /* Hello Kitty stickers */
 .kitty {
   position: absolute;
-  width: 95px;
+  width: 90px;
   opacity: 0.9;
   pointer-events: none;
 }
@@ -56,17 +56,10 @@ body {
   to   { transform: scale(1); opacity: 1; }
 }
 
-/* Main image (2 kitties) */
-.main-img {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
+/* Main image (single kitty) */
 .main-img img {
-  width: 120px;
-  border-radius: 15px;
+  width: 160px;
+  margin-bottom: 10px;
 }
 
 h1 {
@@ -83,28 +76,36 @@ p {
 </head>
 <body>
 
-<!-- MANY HELLO KITTIES -->
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG16.png" style="top:2%; left:2%; transform:rotate(-25deg);">
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG20.png" style="top:5%; right:3%; transform:rotate(20deg);">
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG22.png" style="top:12%; left:10%; transform:rotate(15deg);">
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG25.png" style="top:15%; right:12%; transform:rotate(-15deg);">
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG18.png" style="top:28%; left:2%; transform:rotate(10deg);">
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG19.png" style="top:30%; right:2%; transform:rotate(-10deg);">
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG23.png" style="top:45%; left:6%; transform:rotate(18deg);">
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG24.png" style="top:48%; right:6%; transform:rotate(-18deg);">
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG16.png" style="bottom:20%; left:10%; transform:rotate(12deg);">
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG20.png" style="bottom:22%; right:10%; transform:rotate(-12deg);">
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG22.png" style="bottom:5%; left:3%; transform:rotate(20deg);">
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG25.png" style="bottom:5%; right:3%; transform:rotate(-20deg);">
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG18.png" style="top:60%; left:2%; transform:rotate(15deg);">
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG19.png" style="top:62%; right:2%; transform:rotate(-15deg);">
+<!-- HELLO KITTIES AROUND ALL SIDES -->
+
+<!-- top -->
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG20.png" style="top:3%; left:35%; transform:rotate(-15deg);">
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG22.png" style="top:3%; right:35%; transform:rotate(15deg);">
+
+<!-- bottom -->
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG25.png" style="bottom:3%; left:35%; transform:rotate(15deg);">
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG18.png" style="bottom:3%; right:35%; transform:rotate(-15deg);">
+
+<!-- left -->
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG16.png" style="top:25%; left:2%; transform:rotate(-25deg);">
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG23.png" style="top:55%; left:2%; transform:rotate(20deg);">
+
+<!-- right -->
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG24.png" style="top:25%; right:2%; transform:rotate(25deg);">
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG19.png" style="top:55%; right:2%; transform:rotate(-20deg);">
+
+<!-- corners -->
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG20.png" style="top:10%; left:8%; transform:rotate(-10deg);">
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG22.png" style="top:10%; right:8%; transform:rotate(10deg);">
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG25.png" style="bottom:10%; left:8%; transform:rotate(10deg);">
+<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG18.png" style="bottom:10%; right:8%; transform:rotate(-10deg);">
 
 <!-- MAIN CARD -->
 <div class="card">
 
+  <!-- SINGLE MAIN IMAGE -->
   <div class="main-img">
-    <img src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG16.png">
-    <img src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG20.png">
+    <img src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG50.png" alt="Hello Kitty with heart">
   </div>
 
   <h1>Yes ma’am 😌❤️</h1>
@@ -126,10 +127,7 @@ setInterval(() => {
   heart.style.left = Math.random() * 100 + "vw";
   heart.style.fontSize = Math.random() * 20 + 15 + "px";
   document.body.appendChild(heart);
-
-  setTimeout(() => {
-    heart.remove();
-  }, 6000);
+  setTimeout(() => heart.remove(), 6000);
 }, 500);
 
 /* Confetti burst */
@@ -142,10 +140,6 @@ for (let i = 0; i < 120; i++) {
   confetti.style.left = Math.random() * 100 + "vw";
   confetti.style.top = "-10px";
   confetti.style.opacity = Math.random();
-  confetti.style.transform = "rotate(" + Math.random()*360 + "deg)";
-  confetti.style.animation = "fall 4s linear forwards";
-  document.body.appendChild(confetti);
-
   confetti.animate([
     { transform: "translateY(0)" },
     { transform: "translateY(110vh)" }
@@ -153,7 +147,6 @@ for (let i = 0; i < 120; i++) {
     duration: 4000 + Math.random()*2000,
     iterations: 1
   });
-
   setTimeout(() => confetti.remove(), 6000);
 }
 </script>
