@@ -18,29 +18,29 @@ body {
 
 /* Floating hearts */
 .heart {
-  position: absolute;
-  bottom: -50px;
-  font-size: 20px;
-  animation: floatUp 6s linear infinite;
-  opacity: 0.8;
+  position: fixed;
+  bottom: -40px;
+  font-size: 22px;
+  animation: floatUp 6s linear forwards;
+  z-index: 20;
 }
 
 @keyframes floatUp {
   from { transform: translateY(0); opacity: 1; }
-  to   { transform: translateY(-110vh); opacity: 0; }
+  to   { transform: translateY(-120vh); opacity: 0; }
 }
 
 /* Confetti */
 .confetti {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  animation: fall linear forwards;
+  position: fixed;
+  top: -40px;
+  font-size: 22px;
+  animation: fall 5s linear forwards;
+  z-index: 20;
 }
 
 @keyframes fall {
-  from { transform: translateY(0) rotate(0deg); }
-  to   { transform: translateY(110vh) rotate(360deg); }
+  to { transform: translateY(120vh) rotate(360deg); }
 }
 
 /* Hello Kitty stickers */
@@ -70,25 +70,14 @@ body {
 }
 
 /* Main image */
-.main-img {
-  position: relative;
-}
-
 .main-img img {
   width: 160px;
-}
-
-.main-img span {
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  font-size: 40px;
+  margin-bottom: 10px;
 }
 
 h1 {
   color: #ff3366;
   font-size: 26px;
-  margin-bottom: 10px;
 }
 
 p {
@@ -99,34 +88,18 @@ p {
 </head>
 <body>
 
-<!-- TOP -->
+<!-- HELLO KITTIES AROUND -->
 <img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG20.png" style="top:3%; left:30%; transform:rotate(-15deg);">
 <img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG22.png" style="top:3%; right:30%; transform:rotate(15deg);">
-
-<!-- BOTTOM -->
 <img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG25.png" style="bottom:3%; left:30%; transform:rotate(15deg);">
 <img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG18.png" style="bottom:3%; right:30%; transform:rotate(-15deg);">
-
-<!-- LEFT -->
 <img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG16.png" style="top:25%; left:2%; transform:rotate(-25deg);">
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG23.png" style="top:55%; left:2%; transform:rotate(20deg);">
-
-<!-- RIGHT -->
 <img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG24.png" style="top:25%; right:2%; transform:rotate(25deg);">
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG19.png" style="top:55%; right:2%; transform:rotate(-20deg);">
-
-<!-- CORNERS -->
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG20.png" style="top:10%; left:8%; transform:rotate(-10deg);">
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG22.png" style="top:10%; right:8%; transform:rotate(10deg);">
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG25.png" style="bottom:10%; left:8%; transform:rotate(10deg);">
-<img class="kitty" src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG18.png" style="bottom:10%; right:8%; transform:rotate(-10deg);">
 
 <!-- MAIN CARD -->
 <div class="card">
-
   <div class="main-img">
     <img src="https://pngimg.com/uploads/hello_kitty/hello_kitty_PNG16.png" alt="Hello Kitty">
-    <span>❤️</span>
   </div>
 
   <h1>Yes ma’am 😌❤️</h1>
@@ -136,7 +109,6 @@ p {
     Now you are officially my Valentine 💘  
     Screenshot this and send it to me 😏
   </p>
-
 </div>
 
 <script>
@@ -144,6 +116,25 @@ p {
 setInterval(() => {
   const heart = document.createElement("div");
   heart.className = "heart";
-  heart.innerHTML = "💗";
+  heart.innerText = "💗";
   heart.style.left = Math.random() * 100 + "vw";
-  heart.st
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}, 600);
+
+/* Confetti emojis */
+const confettiEmojis = ["🎉","💖","✨","💗","🌸"];
+
+for (let i = 0; i < 80; i++) {
+  const conf = document.createElement("div");
+  conf.className = "confetti";
+  conf.innerText = confettiEmojis[Math.floor(Math.random()*confettiEmojis.length)];
+  conf.style.left = Math.random() * 100 + "vw";
+  conf.style.animationDuration = (3 + Math.random()*3) + "s";
+  document.body.appendChild(conf);
+  setTimeout(() => conf.remove(), 6000);
+}
+</script>
+
+</body>
+</html>
