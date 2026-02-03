@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine?</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #ffe6ea;
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      position: relative;
+      width: 300px;
+    }
+
+    h1 {
+      color: #ff3366;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    #yesBtn {
+      background: #ff3366;
+      color: white;
+    }
+
+    #noBtn {
+      background: #ccc;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Will you be my Valentine? 💖</h1>
+    <br><br>
+    <button id="yesBtn" onclick="goNext()">Yes</button>
+    <button id="noBtn">No</button>
+  </div>
+
+<script>
+  const noBtn = document.getElementById("noBtn");
+
+  noBtn.addEventListener("mouseover", () => {
+    const card = document.querySelector(".card");
+
+    const x = Math.random() * (card.offsetWidth - noBtn.offsetWidth);
+    const y = Math.random() * (card.offsetHeight - noBtn.offsetHeight);
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  });
+
+  function goNext() {
+    window.location.href = "yes.html";
+  }
+</script>
+
+</body>
+</html>
